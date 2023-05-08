@@ -27,7 +27,7 @@ const CryptoCurrencies = ({ simplified }: { simplified?: boolean }) => {
   console.log(cryptoList);
 
   return (
-    <div className=" grid gap-8 my-4">
+    <div className=" grid gap-4 my-4">
       {!simplified && (
         <div className="w-[300px]">
           <Input
