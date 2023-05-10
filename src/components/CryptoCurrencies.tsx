@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi";
-import { Coin, CoinsResp } from "../types/coinsTypes";
+import { Coin } from "../types/coinsTypes";
 import { Link } from "react-router-dom";
-import { Card, Input, Progress, Skeleton } from "antd";
+import { Card, Input, Skeleton } from "antd";
 import millify from "millify";
 
 const CryptoCurrencies = ({ simplified }: { simplified?: boolean }) => {
-  const count = simplified ? 10 : 100;
+  const count = simplified ? 12 : 100;
   const [cryptoList, setCryptoList] = useState<Coin[] | null>(null);
   const [searchText, setSearchText] = useState("");
 
@@ -23,8 +23,6 @@ const CryptoCurrencies = ({ simplified }: { simplified?: boolean }) => {
       setCryptoList(filteredData);
     }
   }, [cryptosResp, searchText]);
-
-  console.log(cryptoList);
 
   return (
     <div className=" grid gap-4 my-4">

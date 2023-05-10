@@ -5,6 +5,7 @@ import { useGetCryptosQuery } from "../services/cryptoApi";
 import { CryptoCurrencies, News, StatsCard } from "../components";
 import { CoinsResp, Stats } from "../types/coinsTypes";
 import { Link } from "react-router-dom";
+import NewsComponent from "../components/News";
 
 const HomePage = () => {
   const { data, isFetching } = useGetCryptosQuery("");
@@ -54,7 +55,7 @@ const HomePage = () => {
         </div>
       )}
 
-      <div className="flex items-center justify-between mt-8">
+      <div className="flex items-center justify-between mt-20">
         <h3 className=" text-3xl font-bold">
           Top 10 Crypto Currencies in the World
         </h3>
@@ -69,7 +70,8 @@ const HomePage = () => {
           <Link to="/news">Show more</Link>
         </h3>
       </div>
-      <News />
+
+      <NewsComponent simplified />
     </div>
   );
 };

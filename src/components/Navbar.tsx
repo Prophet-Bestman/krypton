@@ -60,7 +60,7 @@ const Navbar = () => {
 
         {/* <Button className="menu-control-container"></Button> */}
       </div>
-      <Menu theme="dark" items={navs} className="w-full" />
+      <Menu theme="dark" items={navs} className="min-w-[200px]" />
     </div>
   );
 };

@@ -11,10 +11,10 @@ function App() {
       <div className="col-span-2 bg-secondaryBg min-h-screen ">
         <Navbar />
       </div>
-      <div className="col-span-8 relative">
+      <div className="col-span-8 grid">
         <div>
           <Layout>
-            <div className="px-12 py-8 min-h-[90vh]">
+            <div className="px-12 py-8 ">
               <Routes>
                 <Route element={<HomePage />} path="/" />
                 <Route element={<Exchanges />} path="/exchanges" />
@@ -28,7 +28,7 @@ function App() {
           </Layout>
         </div>
 
-        <div className="flex flex-col items-center bg-secondaryBg absolute bottom-0 left-0 w-full py-4">
+        <div className="flex flex-col items-center bg-secondaryBg mt-auto py-4">
           <Typography.Title
             level={5}
             style={{ color: "#fff" }}
