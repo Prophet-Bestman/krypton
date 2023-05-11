@@ -20,37 +20,28 @@ const HomePage = () => {
       <Typography.Title level={2}>Global Crypto Stats</Typography.Title>
 
       {globalStats && (
-        <div className="grid grid-cols-12 stats gap-y-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-3 stats gap-y-6 gap-x-8">
           <StatsCard
-            className="col-span-6"
             title="Total Cryptocurrencies"
             value={globalStats.totalCoins.toLocaleString()}
           />
           <StatsCard
-            className="col-span-6"
             title="Total Exchanges"
             value={millify(globalStats?.totalExchanges)}
           />
           <StatsCard
-            className="col-span-6"
             title="Total Market Cap"
             value={millify(Number.parseFloat(globalStats.totalMarketCap))}
           />
           <StatsCard
-            className="col-span-6"
             title="Total 24h Volume"
             value={millify(Number.parseFloat(globalStats.total24hVolume))}
           />
           <StatsCard
-            className="col-span-6"
             title="Total Markets"
             value={millify(globalStats.totalMarkets)}
           />
-          <StatsCard
-            className="col-span-6"
-            title="Total"
-            value={globalStats.total.toLocaleString()}
-          />
+          <StatsCard title="Total" value={globalStats.total.toLocaleString()} />
         </div>
       )}
 

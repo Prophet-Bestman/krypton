@@ -12,9 +12,9 @@ function App() {
       <div className="col-span-3 w-full lg:col-span-2 bg-secondaryBg md:min-h-screen ">
         <Navbar />
       </div>
-      <div className="col-span-7 min-h-screen lg:col-span-8 grid">
+      <div className="col-span-7 lg:col-span-8 grid">
         <div>
-          <Layout>
+          <Layout className=" min-h-screen">
             <div className="px-6 md:px-12 py-8 ">
               <Routes>
                 <Route element={<HomePage />} path="/" />
