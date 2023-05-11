@@ -2,7 +2,7 @@ import React from "react";
 import millify from "millify";
 import { Statistic, Typography } from "antd";
 import { useGetCryptosQuery } from "../services/cryptoApi";
-import { CryptoCurrencies, News, StatsCard } from "../components";
+import { CryptoCurrencies, LoadingPage, News, StatsCard } from "../components";
 import { CoinsResp, Stats } from "../types/coinsTypes";
 import { Link } from "react-router-dom";
 import NewsComponent from "../components/News";
@@ -14,7 +14,7 @@ const HomePage = () => {
 
   // console.log("Data: ", data);
 
-  if (isFetching) return <p>Loading...</p>;
+  if (isFetching) return <LoadingPage />;
 
   return (
     <div>
@@ -56,17 +56,17 @@ const HomePage = () => {
       )}
 
       <div className="flex items-center justify-between mt-20">
-        <h3 className=" text-3xl font-bold">
+        <h3 className="text-xl md:text-3xl font-bold">
           Top 10 Crypto Currencies in the World
         </h3>
-        <h3 className=" text-lg font-semibold  text-primary">
+        <h3 className="text-sm sm:text-base md:text-lg font-semibold   text-primary">
           <Link to="/cryptocurrencies">Show more</Link>
         </h3>
       </div>
       <CryptoCurrencies simplified />
       <div className="flex items-center justify-between mt-8">
-        <h3 className=" text-3xl font-bold">Latest Crypto News</h3>
-        <h3 className=" text-lg font-semibold  text-primary">
+        <h3 className="text-xl md:text-3xl font-bold">Latest Crypto News</h3>
+        <h3 className="text-sm sm:text-base md:text-lg font-semibold   text-primary">
           <Link to="/news">Show more</Link>
         </h3>
       </div>

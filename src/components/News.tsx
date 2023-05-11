@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Card, Button, Select, Skeleton, Typography, Avatar } from "antd";
+import { useEffect, useState } from "react";
+import { Card, Select, Skeleton, Typography, Avatar } from "antd";
 import { useGetCryptoNewsQuery } from "../services/cryptoNewsApi";
 import { Value } from "../types/newsTypes";
-import { format, formatDistanceToNow } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { Coin } from "../types/coinsTypes";
 
@@ -25,10 +25,9 @@ const NewsComponent = ({ simplified }: { simplified?: boolean }) => {
 
   console.log(newsCategoty);
 
-  // console.log(news);
   return (
-    <div className="grid grid-cols-3 gap-4 my-4">
-      <div className="col-span-3">
+    <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
+      <div className="col-span-full">
         {!!cryptosResp && (
           <Select
             showSearch

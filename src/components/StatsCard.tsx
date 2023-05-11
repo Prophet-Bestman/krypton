@@ -10,8 +10,8 @@ interface StatsCardType {
 const StatsCard = ({ title, value, className }: StatsCardType) => {
   return (
     <div className={` text-[#333]  ${className}`}>
-      <h2 className="text-base">{title}</h2>
-      <h3 className="text-3xl font-bold">{value}</h3>
+      <h2 className="text-sm sm:text-base">{title}</h2>
+      <h3 className="text-xl md:text-3xl font-bold">{value}</h3>
     </div>
   );
 };

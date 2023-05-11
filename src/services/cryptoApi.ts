@@ -5,9 +5,6 @@ const cryptoApiHeaders = {
   "X-RapidAPI-Host": import.meta.env.VITE_RAPID_API_HOST,
 };
 
-// console.log("API KEY:", import.meta.env.VITE_RAPID_API_KEY);
-console.log("MODE:", import.meta.env.BASE_URL);
-
 const baseUrl = "https://coinranking1.p.rapidapi.com";
 
 const createApiRequest = (url: string) => ({ url, headers: cryptoApiHeaders });
@@ -21,7 +18,23 @@ export const cryptoApi = createApi({
         return createApiRequest(`/coins?limit=${count || 100}`);
       },
     }),
+    getCryptoDetails: builder.query({
+      query: (coinId) => {
+        return createApiRequest(`/coin/${coinId}`);
+      },
+    }),
+    getCryptoHistory: builder.query({
+      query: ({ coinId, timeperiod }) => {
+        return createApiRequest(
+          `/coin/${coinId}/history?timePeriod=${timeperiod}`
+        );
+      },
+    }),
   }),
 });
 
-export const { useGetCryptosQuery } = cryptoApi;
+export const {
+  useGetCryptosQuery,
+  useGetCryptoDetailsQuery,
+  useGetCryptoHistoryQuery,
+} = cryptoApi;

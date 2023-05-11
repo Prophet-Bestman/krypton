@@ -32,3 +32,7 @@ a:hover {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card-list {
+  @apply flex justify-between  w-[400px] border-b border-[#dedede] py-4 px-3 cursor-pointer hover:bg-white hover:shadow-md text-base text-gray-600 font-medium;
+}

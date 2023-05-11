@@ -21,6 +21,7 @@ import millify from "millify";
 import { CoinDetails } from "../types/coinsTypes";
 import HTMLReactParser from "html-react-parser";
 import LineChart from "./LineChart";
+import { LoadingPage } from ".";
 
 const { Option } = Select;
 
@@ -36,7 +37,7 @@ const CryptoDetails = () => {
     timeperiod,
   });
 
-  if (isFetching) return <div>Loading...</div>;
+  if (isFetching) return <LoadingPage />;
 
   const time = ["3h", "24h", "7d", "30d", "1y", "3m", "3y", "5y"];
 
@@ -75,6 +76,8 @@ const CryptoDetails = () => {
     },
   ];
 
+  console.log(cryptoDetails?.supply?.total);
+
   const genericStats = [
     {
       title: "Number Of Markets",
@@ -98,8 +101,9 @@ const CryptoDetails = () => {
     {
       title: "Total Supply",
       value: `$ ${
-        cryptoDetails?.supply?.total &&
-        millify(Number.parseInt(cryptoDetails?.supply?.total))
+        cryptoDetails?.supply?.total
+          ? millify(Number.parseInt(cryptoDetails?.supply?.total))
+          : "0"
       }`,
       icon: <ExclamationCircleOutlined />,
     },
