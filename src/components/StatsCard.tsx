@@ -1,6 +1,3 @@
-import millify from "millify";
-import React from "react";
-
 interface StatsCardType {
   title: string;
   value: string;

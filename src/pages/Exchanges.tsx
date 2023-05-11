@@ -1,4 +1,3 @@
-import React from "react";
 const Exchanges = () => {
   return (
     <div className="h-screen text-center ">
