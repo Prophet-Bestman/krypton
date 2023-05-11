@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useGetCryptosQuery } from "../services/cryptoApi";
 import { Coin } from "../types/coinsTypes";
 import { Link } from "react-router-dom";
-import { Card, Input, Skeleton } from "antd";
+import { Card, Input } from "antd";
 import millify from "millify";
+import { LoadingPage } from ".";
 
 const CryptoCurrencies = ({ simplified }: { simplified?: boolean }) => {
   const count = simplified ? 12 : 100;
@@ -35,11 +36,11 @@ const CryptoCurrencies = ({ simplified }: { simplified?: boolean }) => {
         </div>
       )}
       {isFetching ? (
-        <Skeleton paragraph={false} active />
+        <LoadingPage />
       ) : (
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {cryptoList?.map((currency) => (
-            <div className="col-span-4" key={currency.uuid}>
+            <div className="" key={currency.uuid}>
               <Link to={`/crypto/${currency.uuid}`}>
                 <Card
                   title={`${currency.rank}. ${currency.name}`}
