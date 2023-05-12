@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Menu, Typography, Avatar, Drawer } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   HomeOutlined,
   MoneyCollectOutlined,
@@ -12,10 +12,14 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import Icon from "../img/krypton-logo.png";
+import { modifyPath } from "../helpers";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [active, setActive] = useState(false);
+  const { pathname } = useLocation();
+
+  console.log(modifyPath(pathname));
 
   const navs = [
     {
@@ -91,7 +95,12 @@ const Navbar = () => {
         <Menu theme="dark" items={navs} className="min-w-[200px]" />
       </Drawer>
       <div className="md:block hidden">
-        <Menu theme="dark" items={navs} className="min-w-[200px]" />
+        <Menu
+          theme="dark"
+          items={[...navs]}
+          className="min-w-[200px]"
+          selectedKeys={[!modifyPath(pathname) ? "Home" : modifyPath(pathname)]}
+        />
       </div>
     </div>
   );

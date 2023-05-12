@@ -23,8 +23,6 @@ const NewsComponent = ({ simplified }: { simplified?: boolean }) => {
     } else setNews(null);
   }, [cryptoNews]);
 
-  console.log(newsCategoty);
-
   return (
     <div className="grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 my-4">
       <div className="col-span-full">
