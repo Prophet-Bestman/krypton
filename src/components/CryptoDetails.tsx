@@ -1,5 +1,5 @@
-import { Select, Typography } from "antd";
-import React, { useState } from "react";
+import { Select } from "antd";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import {
   useGetCryptoDetailsQuery,

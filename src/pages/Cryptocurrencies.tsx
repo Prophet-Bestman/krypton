@@ -1,4 +1,3 @@
-import React from "react";
 import { CryptoCurrencies } from "../components";
 
 const Cryptocurrencies = () => {

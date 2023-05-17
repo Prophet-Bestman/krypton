@@ -33,9 +33,12 @@ const NewsComponent = ({ simplified }: { simplified?: boolean }) => {
             placeholder="search a crypto"
             optionFilterProp="children"
             onChange={(value) => setNewsCategory(value)}
-            filterOption={(input, option) =>
-              option?.children?.toLowerCase().indexOf(input?.toLowerCase()) >= 0
-            }
+            filterOption={(input, option) => {
+              const optionChildren = `${option?.children}`;
+              return (
+                optionChildren?.toLowerCase().indexOf(input?.toLowerCase()) >= 0
+              );
+            }}
           >
             <Select.Option vallue="Cryptocurrency">
               Cryptocurrency

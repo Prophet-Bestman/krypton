@@ -1,6 +1,4 @@
-import React from "react";
 import { Line } from "react-chartjs-2";
-import { Typography } from "antd";
 import { CoinHistoryResp } from "../types/coinsTypes";
 import {
   Chart as ChartJS,
@@ -29,7 +27,7 @@ interface LineChartProps {
   coinName: string;
 }
 
-const LineChart = ({ coinHistory, currentPrice, coinName }: LineChartProps) => {
+const LineChart = ({ coinHistory }: LineChartProps) => {
   const coinPrice = [];
   const coinTimeStamp = [];
 
